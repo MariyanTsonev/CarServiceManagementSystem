@@ -39,6 +39,11 @@ namespace CarServiceManagementSystem.Data
         {
             builder.Entity<CarOption>().HasKey(x => new { x.CarId, x.OptionId });
 
+            builder.Entity<Repair>()
+                .HasOne(x => x.Car)
+                .WithMany(x => x.Repairs)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+
             builder.Entity<Order>()
                 .HasOne(x => x.Mechanic)
                 .WithMany(x => x.WorkOrders)
