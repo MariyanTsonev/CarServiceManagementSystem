@@ -1,6 +1,7 @@
 ﻿using CarServiceManagementSystem.Data.Enums;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,20 +14,26 @@ namespace CarServiceManagementSystem.Data.Models
 
         public DateTime Date { get; set; }
 
+        [Required]
         public string UserId { get; set; }
 
         public ApplicationUser User { get; set; }
 
+        [Required]
+        [RegularExpression(@"(\+)?(359|0)8[789]\d{1}(|-| )\d{3}(|-| )\d{3}", ErrorMessage = "Invalid number!")]
         public string PhoneNumber { get; set; }
 
         public string MechanicId { get; set; }
 
         public ApplicationUser Mechanic { get; set; }
 
+        [Required]
         public int CarId { get; set; }
 
         public Car Car { get; set; }
 
+        [Required]
+        [MaxLength(500, ErrorMessage = "Description is too long, should be no more than 500 characters!")]
         public string IssueDescription { get; set; }
 
         public Status Status { get; set; }
