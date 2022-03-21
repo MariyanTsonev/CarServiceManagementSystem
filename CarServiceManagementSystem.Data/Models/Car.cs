@@ -20,9 +20,11 @@ namespace CarServiceManagementSystem.Data.Models
 
         public int Id { get; set; }
 
+        [Required]
         [StringLength(35, MinimumLength = 1, ErrorMessage = "Manufacturer name must be between 1 and 35 characters!")]
         public string Make { get; set; }
 
+        [Required]
         [StringLength(70, MinimumLength = 1, ErrorMessage = "Vehicle model must be between 1 and 70 characters!")]
         public string Model { get; set; }
 
@@ -40,6 +42,7 @@ namespace CarServiceManagementSystem.Data.Models
         [Range(1, 12, ErrorMessage = "Invalid month!")]
         public int Month { get; set; }
 
+        [Required]
         [RegularExpression("[A-ZА-Я]{2}[0-9]{4}[A-ZА-Я]{2}", ErrorMessage = "Invalid registration plate! Example for valid registration plate - XX1111XX.")]
         public string LicencePlate { get; set; }
 
@@ -56,6 +59,7 @@ namespace CarServiceManagementSystem.Data.Models
         [MaxLength(40)]
         public string Colour { get; set; }
 
+        [Required]
         [StringLength(650, ErrorMessage = "Vehicle description is too long!")]
         public string Description { get; set; }
 
