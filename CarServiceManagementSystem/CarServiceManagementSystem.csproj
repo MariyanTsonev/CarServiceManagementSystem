@@ -25,6 +25,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CarServiceManagementSystem.Data\CarServiceManagementSystem.Data.csproj" />
+    <ProjectReference Include="..\CarServiceManagementSystem.Services\CarServiceManagementSystem.Services.csproj" />
+    <ProjectReference Include="..\CarServiceManagementSystem.ViewModels\CarServiceManagementSystem.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>
