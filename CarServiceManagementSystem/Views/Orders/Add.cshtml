@@ -1,0 +1,65 @@
+﻿@using CarServiceManagementSystem.Data.Enums
+@using CarServiceManagementSystem.ViewModels.Orders
+@model NewOrderInputModel
+
+<form method="post">
+    <div class="form-group col-md-3 offset-md-4">
+        <label asp-for="Date"></label>
+        <input asp-for="Date" class="form-control"/>
+    </div>
+    <div class="form-group col-md-3 offset-md-4">
+        <label asp-for="IssueDescription"></label>
+        <textarea asp-for="IssueDescription" class="form-control"></textarea>
+    </div>
+    <div class="form-group col-md-3 offset-md-4">
+        <label asp-for="PhoneNumber"></label>
+        <input asp-for="PhoneNumber" class="form-control"/>
+    </div>
+    <div class="form-group col-md-3 offset-md-4">
+        <label asp-for="CarMake"></label>
+        <input asp-for="CarMake" class="form-control"/>
+    </div>
+    <div class="form-group col-md-3 offset-md-4">
+        <label asp-for="CarModel"></label>
+        <input asp-for="CarModel" class="form-control"/>
+    </div>
+    <div class="form-group col-md-3 offset-md-4">
+        <label asp-for="Year"></label>
+        <input asp-for="Year" class="form-control"/>
+    </div>
+    <div class="form-group col-md-3 offset-md-4">
+        <label asp-for="Month"></label>
+        <input asp-for="Month" class="form-control"/>
+    </div>
+    <div class="form-group col-md-3 offset-md-4">
+        <label asp-for="LicencePlate"></label>
+        <input asp-for="LicencePlate" class="form-control"/>
+    </div>
+    <div class="form-group col-md-3 offset-md-4">
+        <label asp-for="VinNumber"></label>
+        <input asp-for="VinNumber" class="form-control"/>
+    </div>
+    <div class="form-group col-md-3 offset-md-4">
+        <label asp-for="FuelType"></label>
+        <select asp-for="FuelType" asp-items="Html.GetEnumSelectList<FuelType>()">
+            <option selected="selected" value="">Please select</option>
+        </select>
+    </div>
+    <div class="form-group col-md-3 offset-md-4">
+        <label asp-for="Displacement"></label>
+        <input asp-for="Displacement" class="form-control"/>
+    </div>
+    <div class="form-group col-md-3 offset-md-4">
+        <label asp-for="HorsePower"></label>
+        <input asp-for="HorsePower" class="form-control"/>
+    </div>
+    <div class="form-group col-md-3 offset-md-4">
+        <label asp-for="EngineCode"></label>
+        <input asp-for="EngineCode" class="form-control"/>
+    </div>
+    <div class="form-group col-md-3 offset-md-4">
+        <label asp-for="CylindersCount"></label>
+        <input asp-for="CylindersCount" class="form-control"/>
+    </div>
+    <input type="submit" value="Place Order" class="form-group col-md-3 offset-md-4"/>
+</form>
