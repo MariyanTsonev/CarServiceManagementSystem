@@ -6,60 +6,78 @@
     <div class="form-group col-md-3 offset-md-4">
         <label asp-for="Date"></label>
         <input asp-for="Date" class="form-control"/>
+        <span asp-validation-for="Date"></span>
     </div>
     <div class="form-group col-md-3 offset-md-4">
         <label asp-for="IssueDescription"></label>
         <textarea asp-for="IssueDescription" class="form-control"></textarea>
+        <span asp-validation-for="IssueDescription"></span>
     </div>
     <div class="form-group col-md-3 offset-md-4">
         <label asp-for="PhoneNumber"></label>
         <input asp-for="PhoneNumber" class="form-control"/>
+        <span asp-validation-for="PhoneNumber"></span>
     </div>
     <div class="form-group col-md-3 offset-md-4">
         <label asp-for="CarMake"></label>
         <input asp-for="CarMake" class="form-control"/>
+        <span asp-validation-for="CarMake"></span>
     </div>
     <div class="form-group col-md-3 offset-md-4">
         <label asp-for="CarModel"></label>
         <input asp-for="CarModel" class="form-control"/>
+        <span asp-validation-for="CarModel"></span>
     </div>
     <div class="form-group col-md-3 offset-md-4">
         <label asp-for="Year"></label>
         <input asp-for="Year" class="form-control"/>
+        <span asp-validation-for="Year"></span>
     </div>
     <div class="form-group col-md-3 offset-md-4">
         <label asp-for="Month"></label>
         <input asp-for="Month" class="form-control"/>
+        <span asp-validation-for="Month"></span>
     </div>
     <div class="form-group col-md-3 offset-md-4">
         <label asp-for="LicencePlate"></label>
         <input asp-for="LicencePlate" class="form-control"/>
+        <span asp-validation-for="LicencePlate"></span>
     </div>
     <div class="form-group col-md-3 offset-md-4">
         <label asp-for="VinNumber"></label>
         <input asp-for="VinNumber" class="form-control"/>
+        <span asp-validation-for="VinNumber"></span>
     </div>
     <div class="form-group col-md-3 offset-md-4">
         <label asp-for="FuelType"></label>
         <select asp-for="FuelType" asp-items="Html.GetEnumSelectList<FuelType>()">
             <option selected="selected" value="">Please select</option>
         </select>
+        <span asp-validation-for="FuelType"></span>
     </div>
     <div class="form-group col-md-3 offset-md-4">
         <label asp-for="Displacement"></label>
         <input asp-for="Displacement" class="form-control"/>
+        <span asp-validation-for="Displacement"></span>
     </div>
     <div class="form-group col-md-3 offset-md-4">
         <label asp-for="HorsePower"></label>
         <input asp-for="HorsePower" class="form-control"/>
+        <span asp-validation-for="HorsePower"></span>
     </div>
     <div class="form-group col-md-3 offset-md-4">
         <label asp-for="EngineCode"></label>
         <input asp-for="EngineCode" class="form-control"/>
+        <span asp-validation-for="EngineCode"></span>
     </div>
     <div class="form-group col-md-3 offset-md-4">
         <label asp-for="CylindersCount"></label>
         <input asp-for="CylindersCount" class="form-control"/>
+        <span asp-validation-for="CylindersCount"></span>
     </div>
     <input type="submit" value="Place Order" class="form-group col-md-3 offset-md-4"/>
 </form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
