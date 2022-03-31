@@ -1,4 +1,5 @@
-﻿using CarServiceManagementSystem.Data.Enums;
+﻿using CarServiceManagementSystem.Common;
+using CarServiceManagementSystem.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -17,16 +18,16 @@ namespace CarServiceManagementSystem.Data.Models
 
         public int Id { get; set; }
 
-        [Range(40, 9300, ErrorMessage = "Engine Displacement cannot be less than 40 and more than 9300 cubic centimeters!")]
+        [Range(40, 9300, ErrorMessage = GlobalConstants.InvalidEngineDisplacement)]
         public int Displacement { get; set; }
 
-        [Range(0, 850, ErrorMessage = "Engine Horsepower must be a positive number, no higher than 850!")]
+        [Range(0.1, 850, ErrorMessage = GlobalConstants.InvalidEngineHorsePower)]
         public double HorsePower { get; set; }
 
-        [MaxLength(25, ErrorMessage = "Engine code must be no longer than 25 characters!")]
-        public string EngineCode { get; set; }
+        [MaxLength(25, ErrorMessage = GlobalConstants.InvalidEngineCode)]
+        public string? EngineCode { get; set; }
 
-        [Range(1, 16, ErrorMessage = "Invalid cylinder count!")] // Can create custom attribute to exlucde 7,9,11,13,14,15 cylinder count
+        [Range(1, 16, ErrorMessage = GlobalConstants.InvalidEngineCylinderCount)] // Can create custom attribute to exlucde 7,9,11,13,14,15 cylinder count
         public int CylindersCount { get; set; }
 
         [Range(0, 1100, ErrorMessage = "Engine Torque must be a positive number, no higher than 1100!")]
