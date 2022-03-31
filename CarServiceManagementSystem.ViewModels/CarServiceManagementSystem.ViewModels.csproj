@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\CarServiceManagementSystem.Common\CarServiceManagementSystem.Common.csproj" />
     <ProjectReference Include="..\CarServiceManagementSystem.Data\CarServiceManagementSystem.Data.csproj" />
   </ItemGroup>
 
