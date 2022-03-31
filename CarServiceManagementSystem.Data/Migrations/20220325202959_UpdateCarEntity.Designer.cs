@@ -4,6 +4,7 @@ using CarServiceManagementSystem.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarServiceManagementSystem.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220325202959_UpdateCarEntity")]
+    partial class UpdateCarEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,6 +37,7 @@ namespace CarServiceManagementSystem.Data.Migrations
                         .HasColumnType("nvarchar(40)");
 
                     b.Property<string>("Description")
+                        .IsRequired()
                         .HasMaxLength(650)
                         .HasColumnType("nvarchar(650)");
 
@@ -45,6 +48,7 @@ namespace CarServiceManagementSystem.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Image")
+                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
@@ -70,12 +74,14 @@ namespace CarServiceManagementSystem.Data.Migrations
                         .HasColumnType("decimal(16,2)");
 
                     b.Property<string>("UserId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("VinNumber")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("WarehouseId")
+                    b.Property<int>("WarehouseId")
                         .HasColumnType("int");
 
                     b.Property<int>("Year")
@@ -140,6 +146,7 @@ namespace CarServiceManagementSystem.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("EngineCode")
+                        .IsRequired()
                         .HasMaxLength(25)
                         .HasColumnType("nvarchar(25)");
 
@@ -232,6 +239,7 @@ namespace CarServiceManagementSystem.Data.Migrations
                         .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("MechanicId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("PhoneNumber")
@@ -626,11 +634,15 @@ namespace CarServiceManagementSystem.Data.Migrations
 
                     b.HasOne("CarServiceManagementSystem.Data.Models.ApplicationUser", "User")
                         .WithMany("Cars")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("CarServiceManagementSystem.Data.Models.CarWarehouse", "Warehouse")
                         .WithMany("Cars")
-                        .HasForeignKey("WarehouseId");
+                        .HasForeignKey("WarehouseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Engine");
 
@@ -675,7 +687,8 @@ namespace CarServiceManagementSystem.Data.Migrations
 
                     b.HasOne("CarServiceManagementSystem.Data.Models.ApplicationUser", "Mechanic")
                         .WithMany("WorkOrders")
-                        .HasForeignKey("MechanicId");
+                        .HasForeignKey("MechanicId")
+                        .IsRequired();
 
                     b.HasOne("CarServiceManagementSystem.Data.Models.ApplicationUser", "User")
                         .WithMany("ClientOrders")
