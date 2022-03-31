@@ -21,4 +21,8 @@
     <Folder Include="Migrations\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CarServiceManagementSystem.Common\CarServiceManagementSystem.Common.csproj" />
+  </ItemGroup>
+
 </Project>
