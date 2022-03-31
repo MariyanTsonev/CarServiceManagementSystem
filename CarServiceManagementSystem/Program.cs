@@ -1,5 +1,7 @@
 using CarServiceManagementSystem.Data;
 using CarServiceManagementSystem.Data.Models;
+using CarServiceManagementSystem.Services;
+using CarServiceManagementSystem.Services.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,6 +16,9 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddTransient<IOrdersService, OrdersService>();
+builder.Services.AddTransient<ICarService, CarService>();
 
 var app = builder.Build();
 
