@@ -1,13 +1,16 @@
-﻿using CarServiceManagementSystem.ViewModels.Orders;
+﻿using CarServiceManagementSystem.Services.Interfaces;
+using CarServiceManagementSystem.ViewModels.Orders;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarServiceManagementSystem.Controllers
 {
     public class OrdersController : Controller
     {
-        public OrdersController()
-        {
+        private readonly IOrdersService orderService;
 
+        public OrdersController(IOrdersService orderService)
+        {
+            this.orderService = orderService;
         }
 
         public IActionResult Add()
@@ -18,7 +21,14 @@ namespace CarServiceManagementSystem.Controllers
         [HttpPost]
         public IActionResult Add(NewOrderInputModel model)
         {
-            return null;
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            this.orderService.AddOrder(model, User.Identity.Name);
+
+            return Redirect("/");
         }
     }
 }
