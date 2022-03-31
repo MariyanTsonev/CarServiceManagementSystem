@@ -54,6 +54,11 @@ namespace CarServiceManagementSystem.Data
                 .WithMany(x => x.ClientOrders)
                 .OnDelete(DeleteBehavior.ClientSetNull);
 
+            builder.Entity<Car>()
+                .HasMany(x => x.Orders)
+                .WithOne(x => x.Car)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+
             base.OnModelCreating(builder);
         }
 
