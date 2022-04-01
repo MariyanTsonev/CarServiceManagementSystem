@@ -31,5 +31,7 @@ namespace CarServiceManagementSystem.Common
         public const string InvalidEngineCode = "Engine code must be no longer than {1} characters!";
 
         public const string InvalidEngineCylinderCount = "Invalid cylinder count!";
+
+        public const string InvalidOdometerReading = "Odometer reading must be between 1 and 999999!";
     }
 }
