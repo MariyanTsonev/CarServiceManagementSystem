@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CarServiceManagementSystem.Common;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -33,7 +34,7 @@ namespace CarServiceManagementSystem.Data.Models
         [StringLength(650, ErrorMessage = "Repair description is too long!")]
         public string Description { get; set; }
 
-        [Range(1, 999999, ErrorMessage = "Odometer reading must be between 1 and 999999!")]
+        [Range(1, 999999, ErrorMessage = GlobalConstants.InvalidOdometerReading)]
         public int Odometer { get; set; }
 
         public Oil ChangedOil { get; set; }
