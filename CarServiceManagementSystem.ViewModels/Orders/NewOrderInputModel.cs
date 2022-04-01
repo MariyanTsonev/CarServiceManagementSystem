@@ -11,7 +11,7 @@ namespace CarServiceManagementSystem.ViewModels.Orders
 {
     public class NewOrderInputModel
     {
-        public DateTime Date { get; set; }
+        public DateTime Date { get; set; } //add validation for future date to be chosable only.
 
         [Required]
         [MaxLength(500, ErrorMessage = GlobalConstants.TooLongText)]
@@ -34,6 +34,9 @@ namespace CarServiceManagementSystem.ViewModels.Orders
 
         [Range(1, 12, ErrorMessage = GlobalConstants.InvalidMonth)]
         public int Month { get; set; }
+
+        [Range(1, 999999, ErrorMessage = GlobalConstants.InvalidOdometerReading)]
+        public int Odometer { get; set; }
 
         [Required]
         [RegularExpression("[A-ZА-Я]{2}[0-9]{4}[A-ZА-Я]{2}", ErrorMessage = GlobalConstants.InvalidVehicleRegistrationPlate)]

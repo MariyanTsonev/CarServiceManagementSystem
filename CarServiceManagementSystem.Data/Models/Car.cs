@@ -43,6 +43,9 @@ namespace CarServiceManagementSystem.Data.Models
         [Range(1, 12, ErrorMessage = GlobalConstants.InvalidMonth)]
         public int Month { get; set; }
 
+        [Range(1, 999999, ErrorMessage = GlobalConstants.InvalidOdometerReading)]
+        public int Odometer { get; set; }
+
         [Required]
         [RegularExpression("[A-ZА-Я]{2}[0-9]{4}[A-ZА-Я]{2}", ErrorMessage = GlobalConstants.InvalidVehicleRegistrationPlate)]
         public string LicencePlate { get; set; }
